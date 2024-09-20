@@ -1,0 +1,1 @@
+alter table estetica.users add column role text;

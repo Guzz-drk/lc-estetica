@@ -1,0 +1,19 @@
+spring:
+    application:
+        name: lc-estetica
+    datasource:
+        username: postgres
+        password: 256545
+        url: jdbc:postgresql://localhost:5432/DB_LC-ESTETICA_DEV
+        driver-class-name: org.postgresql.Driver
+    flyway:
+        enabled: true
+        baseline-on-migrate: true
+        user: postgres
+        password: 256545
+        schemas: estetica
+api:
+    security:
+        token: 
+            secret: ${JWT_SECRET:LCESTETICA}
+            issuer: LC-ESTETICA
