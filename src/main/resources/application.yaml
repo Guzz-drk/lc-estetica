@@ -17,3 +17,5 @@ api:
         token: 
             secret: ${JWT_SECRET:LCESTETICA}
             issuer: LC-ESTETICA
+server: 
+    port: 9876

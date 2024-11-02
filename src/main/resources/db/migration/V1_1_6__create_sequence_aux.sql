@@ -1,0 +1,1 @@
+CREATE SEQUENCE if not exists estetica.sequence_aux START 1;
