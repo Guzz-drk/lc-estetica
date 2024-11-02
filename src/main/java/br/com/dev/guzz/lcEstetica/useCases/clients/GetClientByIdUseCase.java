@@ -25,7 +25,7 @@ public class GetClientByIdUseCase {
         try {
             Optional<Clients> client = clientsRepository.findById(id);
             if(client.isPresent())
-                return ResponseEntity.status(HttpStatus.OK).body(client);
+                return ResponseEntity.status(HttpStatus.OK).body(client.get());
             else 
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErroResponseDTO("Cliente não encontrado!"));
         } catch (Exception e) {

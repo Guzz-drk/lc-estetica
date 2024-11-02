@@ -3,6 +3,7 @@ package br.com.dev.guzz.lcEstetica.controller;
 import java.util.List;
 import java.util.UUID;
 
+import br.com.dev.guzz.lcEstetica.models.SimpleApiRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,17 +44,17 @@ public class ClientsController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getClientByID(@PathVariable(name = "id", required = true) UUID id){
+    public ResponseEntity<?> getClientByID(@PathVariable(name = "id", required = true) UUID id, @RequestBody SimpleApiRequest request){
         return getClientByIdUseCase.execute(id);
     }
 
     @GetMapping
-    public ResponseEntity<?> getClients(){
+    public ResponseEntity<?> getClients(@RequestBody SimpleApiRequest request){
         return getClientsUseCase.execute();
     }
 
     @GetMapping("/search")
-    public List<Clients> getClientsBySearch(@RequestHeader("pesquisa") String pesquisa){
-        return getClientsBySearchUseCase.execute(pesquisa);
+    public List<Clients> getClientsBySearch(@RequestHeader("search") String search, @RequestBody SimpleApiRequest request){
+        return getClientsBySearchUseCase.execute(search);
     }
 }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.dev.guzz.lcEstetica.models.SimpleApiRequest;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -28,7 +29,7 @@ import lombok.NoArgsConstructor;
 
 @Entity(name = "clients")
 @Table(schema = "estetica", name = "clients")
-public class Clients implements Serializable{
+public class Clients extends SimpleApiRequest implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

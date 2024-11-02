@@ -15,8 +15,8 @@ public class GetClientsBySearchUseCase {
     @Autowired
     private ClientsRepository clientsRepository;
 
-    public List<Clients> execute(String pesquisa){
-        List<Clients> clients = clientsRepository.findByNameOrMailOrCpf(pesquisa);
+    public List<Clients> execute(String search){
+        List<Clients> clients = clientsRepository.findByNameOrMailOrCpf(search);
 
         return clients.stream()
             .filter(cl -> cl.getActive() == Boolean.TRUE)

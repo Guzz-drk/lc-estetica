@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.dev.guzz.lcEstetica.models.SimpleApiRequest;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -33,7 +34,7 @@ import lombok.NoArgsConstructor;
 
 @Entity(name = "services")
 @Table(schema = "estetica", name = "services")
-public class Services implements Serializable {
+public class Services extends SimpleApiRequest implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

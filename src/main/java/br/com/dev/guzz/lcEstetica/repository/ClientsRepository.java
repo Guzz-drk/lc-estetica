@@ -18,9 +18,9 @@ public interface ClientsRepository extends JpaRepository<Clients, UUID>{
     Optional<Clients> findByCpf(String cpf);
 
     @Query(nativeQuery = true, value = "select c.* from estetica.clients c " +
-                "where (c.name is null or unaccent(c.name)  ilike concat('%', unaccent( :pesquisa), '%') " +
-                "or c.cpf is null or unaccent(c.cpf) ilike concat('%', unaccent( :pesquisa), '%') " +
-                "or c.mail is null or unaccent(c.mail) ilike concat('%', unaccent( :pesquisa), '%') ) " +
+                "where (c.name is null or unaccent(c.name)  ilike concat('%', unaccent( :search), '%') " +
+                "or c.cpf is null or unaccent(c.cpf) ilike concat('%', unaccent( :search), '%') " +
+                "or c.mail is null or unaccent(c.mail) ilike concat('%', unaccent( :search), '%') ) " +
                 "and c.active = true ")
-    List<Clients> findByNameOrMailOrCpf(String pesquisa);
+    List<Clients> findByNameOrMailOrCpf(String search);
 }

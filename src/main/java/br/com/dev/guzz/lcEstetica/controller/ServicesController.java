@@ -2,6 +2,7 @@ package br.com.dev.guzz.lcEstetica.controller;
 
 import java.util.UUID;
 
+import br.com.dev.guzz.lcEstetica.models.SimpleApiRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,12 +37,12 @@ public class ServicesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getServiceById(@PathVariable(name = "id") UUID id){
+    public ResponseEntity<?> getServiceById(@PathVariable(name = "id") UUID id, @RequestBody SimpleApiRequest request){
         return this.getServiceByIdUseCase.execute(id);
     }
 
     @GetMapping
-    public ResponseEntity<?> getServices(){
+    public ResponseEntity<?> getServices(@RequestBody SimpleApiRequest request){
         return this.getServicesUseCase.execute();
     }
 }
